@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Main heading -->
+        <h1>🌤️ Weather App</h1>
+        <p class="subtitle">Get current weather for any city</p>
+        
+        <!-- Weather search form -->
+        <form method="POST" class="search-form">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    name="city" 
+                    placeholder="Enter city name (e.g., London, Tokyo, New York)"
+                    value="{{ city_searched or '' }}"
+                    required
+                    class="city-input"
+                >
+                <button type="submit" class="search-btn">Get Weather</button>
+            </div>
+        </form>
+        
+        <!-- Flash messages for errors -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="messages">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        <!-- Weather results section -->
+        {% if weather %}
+            <div class="weather-card">
+                <div class="weather-header">
+                    <h2>{{ weather.name }}, {{ weather.sys.country }}</h2>
+                </div>
+                
+                <div class="weather-content">
+                    <!-- Weather icon and main info -->
+                    <div class="weather-main">
+                        <img 
+                            src="https://openweathermap.org/img/wn/{{ weather.weather[0].icon }}@2x.png" 
+                            alt="{{ weather.weather[0].description }}"
+                            class="weather-icon"
+                        >
+                        <div class="temperature">
+                            {{ weather.main.temp|round|int }}°C
+                        </div>
+                    </div>
+                    
+                    <!-- Weather description -->
+                    <div class="weather-description">
+                        {{ weather.weather[0].description.title() }}
+                    </div>
+                    
+                    <!-- Additional weather details -->
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Feels like:</span>
+                            <span class="detail-value">{{ weather.main.feels_like|round|int }}°C</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Humidity:</span>
+                            <span class="detail-value">{{ weather.main.humidity }}%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pressure:</span>
+                            <span class="detail-value">{{ weather.main.pressure }} hPa</span>
+                        </div>
+                        {% if weather.wind %}
+                        <div class="detail-item">
+                            <span class="detail-label">Wind:</span>
+                            <span class="detail-value">{{ weather.wind.speed }} m/s</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% elif city_searched %}
+            <!-- Show this when a city was searched but no results -->
+            <div class="no-results">
+                <p>No weather data found for "{{ city_searched }}". Please try again.</p>
+            </div>
+        {% else %}
+            <!-- Show this when page first loads -->
+            <div class="welcome-message">
+                <p>👋 Enter a city name above to get started!</p>
+                <p class="help-text">
+                    Examples: London, Tokyo, New York, Paris, Sydney
+                </p>
+            </div>
+        {% endif %}
+        
+        <!-- Footer with attribution -->
+        <footer class="footer">
+            <p>
+                Powered by 
+                <a href="https://openweathermap.org/" target="_blank" rel="noopener">
+                    OpenWeatherMap API
+                </a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
