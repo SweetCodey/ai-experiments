@@ -1,0 +1,74 @@
+.start-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.start-content {
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.game-title {
+  margin-bottom: 80px;
+  font-size: 4rem;
+  font-weight: 900;
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+  line-height: 0.9;
+}
+
+.title-word {
+  display: block;
+  background: linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.title-word:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.start-btn {
+  font-size: 20px;
+  padding: 20px 40px;
+  min-width: 250px;
+}
+
+.how-to-play-btn {
+  font-size: 16px;
+  padding: 16px 32px;
+  min-width: 200px;
+}
+
+@media (max-width: 480px) {
+  .game-title {
+    font-size: 3rem;
+    margin-bottom: 60px;
+  }
+  
+  .start-btn {
+    font-size: 18px;
+    padding: 18px 36px;
+    min-width: 220px;
+  }
+  
+  .how-to-play-btn {
+    font-size: 14px;
+    padding: 14px 28px;
+    min-width: 180px;
+  }
+}

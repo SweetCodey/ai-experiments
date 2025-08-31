@@ -1,0 +1,363 @@
+.game-page {
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.game-header {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.back-btn {
+  font-size: 14px;
+  padding: 12px 20px;
+}
+
+.game-stats {
+  display: flex;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 25px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #666;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 2px;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.game-complete-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease;
+}
+
+.completion-message {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: bounceIn 0.8s ease;
+}
+
+.completion-message h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.completion-message p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.exit-confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.exit-confirmation-dialog {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+  animation: bounceIn 0.5s ease;
+}
+
+.exit-confirmation-dialog h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.exit-confirmation-dialog p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.confirmation-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.confirmation-buttons .btn {
+  min-width: 120px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.confirmation-buttons .btn-danger {
+  background: #ff4757;
+  color: white;
+}
+
+.confirmation-buttons .btn-danger:hover {
+  background: #ff3742;
+  transform: translateY(-2px);
+}
+
+.confirmation-buttons .btn-primary {
+  background: #5352ed;
+  color: white;
+}
+
+.confirmation-buttons .btn-primary:hover {
+  background: #3742fa;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .game-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .game-stats {
+    justify-content: center;
+  }
+  
+  .game-grid {
+    max-width: 320px;
+    gap: 10px;
+  }
+  
+  .stat {
+    flex: 1;
+  }
+}
+
+@media (max-width: 400px) {
+  .game-grid {
+    max-width: 280px;
+    gap: 8px;
+  }
+  
+  .game-stats {
+    gap: 15px;
+    padding: 12px 20px;
+  }
+  
+  .stat-value {
+    font-size: 16px;
+  }
+}
+
+/* Bonus Grid Styles */
+.bonus-grid-container {
+  margin-top: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  animation: slideInUp 0.5s ease;
+  max-width: 400px;
+  width: 100%;
+}
+
+.bonus-grid-header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.bonus-grid-header h3 {
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.bonus-timer {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #ffd700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.bonus-score {
+  font-size: 1rem;
+  color: #90ee90;
+  font-weight: bold;
+}
+
+.bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.bonus-grid .card {
+  width: 70px;
+  height: 70px;
+  border: 3px solid #ffd700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.bonus-grid .card-front {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+}
+
+.bonus-grid .card.matched {
+  border-color: #90ee90;
+  animation: bonusMatchPulse 0.6s ease;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bonusMatchPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (max-width: 600px) {
+  .bonus-grid-container {
+    margin-top: 20px;
+    padding: 15px;
+  }
+  
+  .bonus-grid-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .bonus-timer {
+    font-size: 1.1rem;
+  }
+  
+  .bonus-grid {
+    max-width: 160px;
+    gap: 10px;
+  }
+  
+  .bonus-grid .card {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 400px) {
+  .bonus-grid {
+    max-width: 140px;
+    gap: 8px;
+  }
+  
+  .bonus-grid .card {
+    width: 55px;
+    height: 55px;
+  }
+}
