@@ -79,10 +79,10 @@ A beautiful and modern memory matching game built with Vite, TypeScript, and Rea
 
 ## Scoring Strategy
 
-- **Conservative Play**: Focus on memory and accuracy to avoid negative scores
-- **Speed vs. Accuracy**: Balance quick play with careful moves
-- **Recovery**: Even negative scores can be recovered with successful matches
-- **Optimal Performance**: Perfect memory (16 moves) + speed = highest scores
+- **Focus on accuracy** to avoid losing points
+- **Balance speed with memory** - quick matches boost your score
+- **Don't worry about mistakes** - you can always recover
+- **Best strategy**: Memorize card positions and match quickly
 
 Enjoy playing Memory Match! 🎮✨
 
