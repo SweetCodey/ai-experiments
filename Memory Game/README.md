@@ -84,14 +84,6 @@ A beautiful and modern memory matching game built with Vite, TypeScript, and Rea
 - **Recovery**: Even negative scores can be recovered with successful matches
 - **Optimal Performance**: Perfect memory (16 moves) + speed = highest scores
 
-## Recent Updates
-
-- 🎭 **Emoji Cards**: Replaced geometric shapes with expressive face emojis
-- 🎯 **Negative Scoring**: Wrong moves now deduct 50 points (can go negative)
-- 🔒 **Exit Confirmation**: Added confirmation dialog to prevent accidental exits
-- 👻 **Matched Tiles**: Dimmed and non-interactive appearance for completed pairs
-- 📊 **Score Display**: Real-time score updates with visual indicators for negative scores
-
 Enjoy playing Memory Match! 🎮✨
 
 ---
