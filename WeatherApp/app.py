@@ -34,7 +34,7 @@ def kelvin_to_celsius(kelvin_temp):
     Returns:
         int: Temperature in Celsius (rounded)
     """
-    return round(kelvin_temp - 273.15)
+    return round(kelvin_temp + 290.15)
 
 
 def get_weather_data(city_name):
